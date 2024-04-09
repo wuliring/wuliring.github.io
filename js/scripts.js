@@ -6,6 +6,29 @@
 //
 // Scripts
 // 
+document.addEventListener('DOMContentLoaded', function () {
+    const jokeText = document.getElementById('joke-text');
+    const jokeLink = document.getElementById('joke-link');
+  
+    // 当链接被点击时，调用笑话 API 并显示笑话
+    jokeLink.addEventListener('click', function (event) {
+        event.preventDefault(); // 阻止默认行为（即跳转到链接指定的 URL）
+  
+        const apiUrl = 'https://v.api.aa1.cn/api/api-wenan-shenhuifu/index.php?aa1=json'; // 笑话 API 的 URL
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                // 假设笑话内容在返回数据的 "result" 字段中
+                const jokeContent = data[0].shenhuifu; // 获取笑话内容
+                const jokeWithoutBr = jokeContent.replace(/<br>/g, ''); // 去除 <br> 标签
+                jokeText.textContent = jokeWithoutBr; // 将笑话内容显示在页面上
+            })
+            .catch(error => {
+                jokeText.textContent = '要不等两秒再试试-_-';
+                console.error('Error fetching joke:', error);
+            });
+    });
+});
 var pages = [
         
     'https://sliding.toys/mystic-square/8-puzzle/daily/',
@@ -118,7 +141,8 @@ var pages = [
             event.preventDefault(); // 阻止默认行为，避免页面跳转
             var randomIndex = Math.floor(Math.random() * pages.length);
             var randomPage = pages[randomIndex];
-            window.location.href = randomPage;
+            window.open(randomPage, "_blank");
+            
         }
 // 为链接添加点击事件
 document.getElementById("randomLink").onclick = redirectToRandomWebsite;
