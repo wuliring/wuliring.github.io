@@ -63,33 +63,11 @@ function triggerPrank() {
     prankImage.src = "./scense/"+randomImage;
 
     prankPopup.style.display = "block";
-
-    // 逐渐显示恶作剧图片
-    prankImage.style.opacity = "0"; // 设置初始透明度为0
-    var opacity = 0;
-    var intervalId = setInterval(function() {
-        opacity += 0.05; // 每次透明度增加0.05
-        prankImage.style.opacity = opacity;
-        if (opacity >= 1) {
-            clearInterval(intervalId); // 清除定时器
-            // 等待一段时间后，逐渐隐藏恶作剧弹窗
-            setTimeout(function() {
-                var intervalId = setInterval(function() {
-                    opacity -= 0.05; // 每次透明度减少0.05
-                    prankImage.style.opacity = opacity;
-                    if (opacity <= 0) {
-                        clearInterval(intervalId); // 清除定时器
-                        prankPopup.style.display = "none"; // 隐藏恶作剧弹窗
-                    }
-                }, 50); // 每50毫秒执行一次
-            }, 3000); // 等待3秒后开始逐渐隐藏
-        }
-    }, 50); // 每50毫秒执行一次
+    prankPopup.addEventListener("animationend", function() {
+        // 隐藏图片和玻璃罩
+        prankPopup.style.display = "none";
+    }, { once: true });
 }
-
-    
-    // 显示恶作剧弹窗
-   
 var pages = [
         
     'https://sliding.toys/mystic-square/8-puzzle/daily/',
