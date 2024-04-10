@@ -103,6 +103,7 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 9999;
   animation: fadeInOut 5s ease-in-out forwards;
+  
 }
 
 #prank-image {
@@ -113,15 +114,20 @@ body {
   max-width: 80%;
   max-height: 80%;
   opacity: 0; /* 初始透明度为0 */
-  animation: fadeInOut 5s ease-in-out forwards; /* 使用CSS动画 */
+  animation: fadeInOut 6s ease-in-out forwards; /* 使用CSS动画 */
+  border-radius: 20px; /* 添加圆角 */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 /* CSS动画 */
 @keyframes fadeInOut {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
-}
+  
+    0% { opacity: 0; }
+    40% { opacity: 1; } /* 图片完全显示前 40% 的动画时间 */
+    60% { opacity: 1; } /* 图片完全显示后 20% 的动画时间，停留一秒钟 */
+    100% { opacity: 0; } /* 逐渐消失的动画时间 */
+  }
+
 hr {
   margin: 1rem 0;
   color: inherit;
