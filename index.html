@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泉州文旅推荐 | 宋元中国·海丝泉州</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        qz: {
+                            red: '#ff2a2a', // Brighter Red
+                            gold: '#ffcc00', // Brighter Gold
+                            blue: '#3b82f6', // Brighter Blue
+                            paper: '#fdfbf7', // Paper background
+                            dark: '#1a1a1a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    boxShadow: {
+                        'brutal': '6px 6px 0px 0px rgba(0,0,0,1)',
+                        'brutal-lg': '10px 10px 0px 0px rgba(0,0,0,1)',
+                        'brutal-sm': '3px 3px 0px 0px rgba(0,0,0,1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Pattern Background */
+        body {
+            background-color: #fdfbf7;
+            background-image: radial-gradient(#000000 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        
+        /* Brutalist Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: #fff;
+            border-left: 2px solid #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #000;
+            border: 2px solid #fff;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #333;
+        }
+
+        .brutal-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .brutal-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 10px 10px 0px 0px rgba(0,0,0,1);
+        }
+        .brutal-card:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px rgba(0,0,0,1);
+        }
+    </style>
+</head>
+<body class="text-black font-sans min-h-screen flex flex-col selection:bg-yellow-400 selection:text-black">
+
+    <!-- Header -->
+    <header class="bg-white border-b-4 border-black sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <!-- Brutalist Icon Box -->
+                <div class="w-12 h-12 bg-qz-red border-2 border-black flex items-center justify-center shadow-brutal-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter">
+                        <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
+                        <path d="M18 14h-8"/>
+                        <path d="M15 18h-5"/>
+                        <path d="M10 6h8v4h-8V6Z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-black tracking-tighter uppercase italic">QUANZHOU<span class="text-qz-red">.TRIP</span></h1>
+                    <p class="text-xs font-mono font-bold bg-black text-white inline-block px-1 mt-1">宋元中国 · 海丝泉州</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex gap-4 text-sm font-bold font-mono">
+                <a href="#" class="px-4 py-2 bg-white border-2 border-transparent hover:border-black hover:bg-yellow-300 transition-colors">HOME</a>
+                <a href="#map" class="px-4 py-2 bg-white border-2 border-transparent hover:border-black hover:bg-yellow-300 transition-colors">MAP</a>
+                <a href="#highlights" class="px-4 py-2 bg-black text-white border-2 border-black hover:bg-white hover:text-black shadow-brutal-sm transition-all">HIGHLIGHTS</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+        
+        <!-- Map Section: Hand-drawn + Neo-Brutalism Style -->
+        <section id="map" class="w-full bg-[#fdfbf7] border-4 border-black shadow-brutal-lg relative transition-transform duration-300 hover:-translate-y-1">
+            
+            <!-- Decorative "Tape" -->
+            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-48 h-8 bg-[#eab308] opacity-90 rotate-[-1deg] z-20 border-2 border-black/20 shadow-sm pointer-events-none"></div>
+
+            <!-- Brutalist Label -->
+            <div class="absolute top-0 left-0 z-10">
+                <div class="bg-black text-white px-6 py-2 font-mono font-bold text-lg border-r-4 border-b-4 border-white inline-block">
+                    QUANZHOU_MAP_VIEW
+                </div>
+            </div>
+            
+            <!-- Map Embed with "Hand-drawn" Paper Filter -->
+            <div class="w-full h-[450px] bg-[#f0f0f0] relative overflow-hidden border-b-4 border-black">
+                <!-- SVG Noise Overlay for Paper Texture -->
+                <svg class="absolute inset-0 z-10 opacity-20 pointer-events-none w-full h-full">
+                    <filter id="noise">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
+                    </filter>
+                    <rect width="100%" height="100%" filter="url(#noise)"/>
+                </svg>
+
+                <!-- OpenStreetMap with Sepia/Contrast Filter -->
+                <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=118.520,24.850,118.680,24.950&amp;layer=mapnik&amp;marker=24.908,118.590" 
+                    style="filter: sepia(0.4) contrast(1.2) brightness(1.05) hue-rotate(-10deg);">
+                </iframe>
+                
+                <!-- Hand-drawn Marker Style Overlay (Simulated) -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20">
+                     <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-md animate-bounce">
+                        <!-- Scribble Pin -->
+                        <path d="M50 95C50 95 20 60 20 35C20 18.4315 33.4315 5 50 5C66.5685 5 80 18.4315 80 35C80 60 50 95 50 95Z" fill="#c24a3d" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="50" cy="35" r="12" fill="white" stroke="black" stroke-width="3"/>
+                        <path d="M35 35H65" stroke="black" stroke-width="2" stroke-dasharray="4 2"/>
+                     </svg>
+                </div>
+            </div>
+            
+            <!-- Brutalist Footer for Map -->
+            <div class="bg-yellow-400 px-4 py-3 flex justify-between items-center font-mono text-sm font-bold text-black">
+                <div class="flex items-center gap-2">
+                    <span class="inline-block w-4 h-4 bg-red-600 border-2 border-black animate-pulse"></span>
+                    <span>LIVE_COORD: 24.908°N, 118.590°E</span>
+                </div>
+                <span class="uppercase tracking-widest hidden sm:inline border-b-2 border-black">Explore Heritage</span>
+            </div>
+        </section>
+
+        <!-- Cards Grid -->
+        <section id="highlights">
+            <!-- Section Header -->
+            <div class="mb-8 flex items-end gap-4">
+                <h2 class="text-4xl font-black uppercase italic tracking-tighter bg-white border-4 border-black p-2 inline-block shadow-brutal">
+                    Top Highlights
+                </h2>
+                <span class="mb-2 font-mono font-bold bg-qz-red text-white px-2 py-1 border-2 border-black -rotate-2">5 SELECTED</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Card 1: Culture -->
+                <div class="bg-white border-4 border-black shadow-brutal brutal-card group">
+                    <div class="bg-blue-300 p-4 border-b-4 border-black flex items-center justify-between">
+                        <h2 class="text-xl font-black uppercase">01. 文化底蕴</h2>
+                        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4 font-bold text-sm">
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 mt-1 bg-black text-white text-[10px] flex items-center justify-center font-mono">A</span>
+                                <span><span class="bg-blue-100 px-1 border border-black">海丝起点</span> 宋元东方第一大港</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 mt-1 bg-black text-white text-[10px] flex items-center justify-center font-mono">B</span>
+                                <span><span class="bg-blue-100 px-1 border border-black">世界遗产</span> 22个遗产点见证历史</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 mt-1 bg-black text-white text-[10px] flex items-center justify-center font-mono">C</span>
+                                <span><span class="bg-blue-100 px-1 border border-black">多元宗教</span> 世界宗教博物馆</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2: Nature -->
+                <div class="bg-white border-4 border-black shadow-brutal brutal-card group">
+                    <div class="bg-green-300 p-4 border-b-4 border-black flex items-center justify-between">
+                        <h2 class="text-xl font-black uppercase">02. 自然风光</h2>
+                        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4 font-bold text-sm">
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 mt-1 bg-black text-white text-[10px] flex items-center justify-center font-mono">A</span>
+                                <span><span class="bg-green-100 px-1 border border-black">清源山</span> 5A景区，老君岩</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 mt-1 bg-black text-white text-[10px] flex items-center justify-center font-mono">B</span>
+                                <span><span class="bg-green-100 px-1 border border-black">崇武古城</span> 最美八大海岸之一</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 mt-1 bg-black text-white text-[10px] flex items-center justify-center font-mono">C</span>
+                                <span><span class="bg-green-100 px-1 border border-black">洛阳桥</span> 古代四大名桥之一</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3: History -->
+                <div class="bg-white border-4 border-black shadow-brutal brutal-card group">
+                    <div class="bg-amber-300 p-4 border-b-4 border-black flex items-center justify-between">
+                        <h2 class="text-xl font-black uppercase">03. 历史建筑</h2>
+                        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4 font-bold text-sm">
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 mt-1 bg-black text-white text-[10px] flex items-center justify-center font-mono">A</span>
+                                <span><span class="bg-amber-100 px-1 border border-black">开元寺</span> 东西双塔精神地标</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 mt-1 bg-black text-white text-[10px] flex items-center justify-center font-mono">B</span>
+                                <span><span class="bg-amber-100 px-1 border border-black">红砖古厝</span> 出砖入石燕尾脊</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 mt-1 bg-black text-white text-[10px] flex items-center justify-center font-mono">C</span>
+                                <span><span class="bg-amber-100 px-1 border border-black">安平桥</span> 天下无桥长此桥</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 4: Folk -->
+                <div class="bg-white border-4 border-black shadow-brutal brutal-card group">
+                    <div class="bg-purple-300 p-4 border-b-4 border-black flex items-center justify-between">
+                        <h2 class="text-xl font-black uppercase">04. 民俗体验</h2>
+                        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4 font-bold text-sm">
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 mt-1 bg-black text-white text-[10px] flex items-center justify-center font-mono">A</span>
+                                <span><span class="bg-purple-100 px-1 border border-black">簪花围</span> 今生戴花，来世漂亮</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 mt-1 bg-black text-white text-[10px] flex items-center justify-center font-mono">B</span>
+                                <span><span class="bg-purple-100 px-1 border border-black">南音</span> 中国音乐活化石</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 mt-1 bg-black text-white text-[10px] flex items-center justify-center font-mono">C</span>
+                                <span><span class="bg-purple-100 px-1 border border-black">提线木偶</span> 顷刻驱驰千里外</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 5: Business -->
+                <div class="bg-white border-4 border-black shadow-brutal brutal-card group">
+                    <div class="bg-cyan-300 p-4 border-b-4 border-black flex items-center justify-between">
+                        <h2 class="text-xl font-black uppercase">05. 文旅业态</h2>
+                        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4 font-bold text-sm">
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 mt-1 bg-black text-white text-[10px] flex items-center justify-center font-mono">A</span>
+                                <span><span class="bg-cyan-100 px-1 border border-black">西街</span> 古街区网红打卡</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 mt-1 bg-black text-white text-[10px] flex items-center justify-center font-mono">B</span>
+                                <span><span class="bg-cyan-100 px-1 border border-black">五店市</span> 传统红砖古厝街区</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 mt-1 bg-black text-white text-[10px] flex items-center justify-center font-mono">C</span>
+                                <span><span class="bg-cyan-100 px-1 border border-black">小西埕</span> 文艺青年聚集地</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white border-t-4 border-black py-12 mt-auto relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-0 left-0 w-full h-2 bg-yellow-400"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 text-center font-mono">
+            <div class="mb-4 flex justify-center gap-4">
+                <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                <span class="w-3 h-3 bg-blue-500 rounded-full"></span>
+            </div>
+            <p class="uppercase tracking-widest text-sm mb-2">Developed by Cursor AI</p>
+            <p class="text-xs text-gray-400">DEPLOY_STATUS: LOCALHOST // MODE: NEO-BRUTALISM</p>
+        </div>
+    </footer>
+
+</body>
+</html>
